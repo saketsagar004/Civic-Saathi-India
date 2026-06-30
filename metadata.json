@@ -1,0 +1,6 @@
+{
+  "name": "AI Civic Connect",
+  "description": "A smart platform for reporting and resolving civic issues",
+  "requestFramePermissions": ["geolocation", "camera"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

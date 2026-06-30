@@ -1,0 +1,38 @@
+{
+  "collections": [
+    {
+      "name": "reports",
+      "fields": [
+        { "name": "userId", "type": "string" },
+        { "name": "imageUrl", "type": "string" },
+        { "name": "category", "type": "string" },
+        { "name": "severity", "type": "string" },
+        { "name": "description", "type": "string" },
+        { "name": "department", "type": "string" },
+        { "name": "location", "type": "map" },
+        { "name": "timestamp", "type": "number" },
+        { "name": "status", "type": "string" },
+        { "name": "upvoteCount", "type": "number" },
+        { "name": "upvotedBy", "type": "array" }
+      ],
+      "rules": [
+        {
+          "allow": "read",
+          "condition": "request.auth != null"
+        },
+        {
+          "allow": "create",
+          "condition": "request.auth != null && request.resource.data.userId == request.auth.uid"
+        },
+        {
+          "allow": "update",
+          "condition": "request.auth != null"
+        },
+        {
+          "allow": "delete",
+          "condition": "request.auth != null && resource.data.userId == request.auth.uid"
+        }
+      ]
+    }
+  ]
+}
